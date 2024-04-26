@@ -1,51 +1,56 @@
-import express from "express";
-import connect from "./database/connect.js";
-import userModel from "./models/user.model.js";
+const express = require("express");
+const cors = require("cors");
+const connect = require("./database/connect.js");
+const userRoutes = require("./routes/user-route.js");
+const { handleError } = require("./middlewares/errorHandler.js")
+const userModel = require("./models/user.model.js");
 
 const app = express();
-
 app.use(express.json());
+app.use(cors());
+
+
+// // GET: http://localhost:8080
+// app.get("/", (red, res) => {
+//   try {
+//     userModel
+//       .find({})
+//       .then((data) => {
+//         res.json(data);
+//       })
+//       .catch((error) => {
+//         res.json({ error });
+//       });
+//   } catch (error) {
+//     res.json({ error });
+//   }
+// });
+
+// // PORT: http://localhost:8080/add
+// app.post("/add", (req, res) => {
+//   try {
+//     const user = new userModel({
+//       username: "testuser",
+//       password: "testpassword",
+//     });
+
+//     user
+//       .save()
+//       .then(() => {
+//         return res.json({ msg: "User add successfully!" });
+//       })
+//       .catch((error) => {
+//         return res.json({ error });
+//       });
+//   } catch (error) {
+//     res.json({ error: "Invalid Add request" });
+//   }
+// });
+
+app.use("/api", userRoutes);
+app.use(handleError);
 
 const port = process.env.PORT || 8080;
-
-// GET: http://localhost:8080
-
-app.get("/", (red, res) => {
-  try {
-    userModel
-      .find({})
-      .then((data) => {
-        res.json(data);
-      })
-      .catch((error) => {
-        res.json({ error });
-      });
-  } catch (error) {
-    res.json({ error });
-  }
-});
-
-// PORT: http://localhost:8080/add
-
-app.post("/add", (req, res) => {
-  try {
-    const user = new userModel({
-      username: "testuser",
-      password: "testpassword",
-    });
-
-    user
-      .save()
-      .then(() => {
-        return res.json({ msg: "User add successfully!" });
-      })
-      .catch((error) => {
-        return res.json({ error });
-      });
-  } catch (error) {
-    res.json({ error: "Invalid Add request" });
-  }
-});
 
 connect()
   .then(() => {
@@ -57,6 +62,6 @@ connect()
       console.log("Can't connect to the server");
     }
   })
-  .catch(error => {
+  .catch((error) => {
     console.log("Invalid Database Connection...!");
   });
