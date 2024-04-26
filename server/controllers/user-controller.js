@@ -1,4 +1,5 @@
-// controllers/userController.js
+const jwt = require("jsonwebtoken");
+
 const userModel = require("../models/user.model");
 
 exports.getAllUsers = async (req, res) => {
@@ -14,7 +15,6 @@ exports.addUser = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    // Check if the provided credentials match the expected ones
     if (username !== "testuser" || password !== "testpassword") {
       return res.status(401).json({ error: "Invalid username/password" });
     }
@@ -24,10 +24,16 @@ exports.addUser = async (req, res) => {
       return res.status(400).json({ error: "User already exists" });
     }
 
+    // Generate JWT token
+    const token = jwt.sign({ data: username }, "process.env.TOKEN_SECRET", {
+      expiresIn: "1h",
+    });
+
     const user = new userModel({ username, password });
     await user.save();
-    res.json({ msg: "User added successfully!" });
+    return res.json({ msg: "User added successfully!", token });
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error(error); 
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
