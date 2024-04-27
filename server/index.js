@@ -2,12 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const connect = require("./database/connect.js");
 const userRoutes = require("./routes/user-route.js");
+const todoRouter = require("./routes/todo-route.js");
 const { handleError } = require("./middlewares/errorHandler.js")
-const userModel = require("./models/user.model.js");
+const dotenv = require("dotenv");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+dotenv.config();
 
 
 // // GET: http://localhost:8080
@@ -48,6 +50,7 @@ app.use(cors());
 // });
 
 app.use("/api", userRoutes);
+app.use("/api", todoRouter);
 app.use(handleError);
 
 const port = process.env.PORT || 8080;
