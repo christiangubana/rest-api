@@ -5,7 +5,8 @@ exports.addTodo = (req, res) => {
   try {
     const { title, description } = req.body;
     const todo = todoService.addTodo({ title, description });
-    res.json(todo);
+    res.status(201).json({ id: todo._id, title: todo.title, description: todo.description, msg: "Todo added successfully" });
+    console.log(todo); //check the value of todo
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -19,7 +20,7 @@ exports.getTodoById = (req, res) => {
     if (!todo) {
       return res.status(404).json({ error: "Todo not found" });
     }
-    res.json(todo);
+    res.json({ id: todo._id, title: todo.title, description: todo.description });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -34,12 +35,13 @@ exports.updateTodoById = (req, res) => {
     if (!updatedTodo) {
       return res.status(404).json({ error: "Todo not found" });
     }
-    res.json(updatedTodo);
+    res.json({ id: updatedTodo._id, title: updatedTodo.title, description: updatedTodo.description, msg: "Todo updated successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 exports.deleteTodoById = (req, res) => {
   try {
     const { id } = req.params;
@@ -53,10 +55,11 @@ exports.deleteTodoById = (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 exports.getAllTodos = (req, res) => {
   try {
     const todos = todoService.getAllTodos();
-    res.json(todos);
+    res.json(todos.map(todo => ({ id: todo._id, title: todo.title, description: todo.description })));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
