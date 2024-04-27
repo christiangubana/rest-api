@@ -1,7 +1,12 @@
-import "./App.css";
+import './App.css';
+import Login from '../components/Login';
 
 function App() {
-  return <h1 className="text-3xl font-bold">Simple rest api challenge!</h1>;
+  return (
+    <>
+    <Login/>
+    </>
+  )
 }
 
-export default App;
+export default App
