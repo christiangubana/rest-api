@@ -1,11 +1,15 @@
-// controllers/weatherController.js
-// Assuming you have a function to fetch weather data from an external API
-const weatherService = require("../services/weatherService");
+const { getWeatherData } = require("../services/weatherService");
 
-exports.getWeather = async (req, res) => {
+exports.fetchWeatherData = async (req, res) => {
   try {
+    const { city } = req.query;
+    if (!city) {
+      return res.status(400).json({ error: "City parameter is required" });
+    }
+
     // Call the function to fetch weather data
-    const weatherData = await weatherService.fetchWeather();
+    const weatherData = await getWeatherData(city);
+
     res.json(weatherData);
   } catch (error) {
     console.error(error);

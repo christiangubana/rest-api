@@ -1,8 +1,9 @@
 // routes/weatherRoutes.js
 const express = require("express");
 const router = express.Router();
-const weatherController = require("../controllers/weatherController");
+const { fetchWeatherData } = require('../controllers/weatherController');
 
-router.get("/weather", weatherController.getWeather);
-
+// Endpoint to fetch weather data
+// GET: http://localhost:8080/api/weather?city=CapeTown
+router.get('/weather', fetchWeatherData);
 module.exports = router;

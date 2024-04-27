@@ -1,56 +1,22 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
+
 const connect = require("./database/connect.js");
 const userRoutes = require("./routes/user-route.js");
 const todoRouter = require("./routes/todo-route.js");
-const { handleError } = require("./middlewares/errorHandler.js")
-const dotenv = require("dotenv");
+const weatherRouter = require("./routes/weatherRoutes.js");
+const { handleError } = require("./middlewares/errorHandler.js");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 dotenv.config();
 
-
-// // GET: http://localhost:8080
-// app.get("/", (red, res) => {
-//   try {
-//     userModel
-//       .find({})
-//       .then((data) => {
-//         res.json(data);
-//       })
-//       .catch((error) => {
-//         res.json({ error });
-//       });
-//   } catch (error) {
-//     res.json({ error });
-//   }
-// });
-
-// // PORT: http://localhost:8080/add
-// app.post("/add", (req, res) => {
-//   try {
-//     const user = new userModel({
-//       username: "testuser",
-//       password: "testpassword",
-//     });
-
-//     user
-//       .save()
-//       .then(() => {
-//         return res.json({ msg: "User add successfully!" });
-//       })
-//       .catch((error) => {
-//         return res.json({ error });
-//       });
-//   } catch (error) {
-//     res.json({ error: "Invalid Add request" });
-//   }
-// });
-
 app.use("/api", userRoutes);
 app.use("/api", todoRouter);
+app.use('/api', weatherRouter);
+
 app.use(handleError);
 
 const port = process.env.PORT || 8080;
