@@ -1,4 +1,3 @@
-// basicAuth.js
 const basicAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {

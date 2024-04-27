@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const userModel = require("../models/user.model");
 
-exports.getAllUsers = async (req, res) => {
+exports.getUser = async (req, res) => { 
   try {
     const users = await userModel.find({});
     res.json(users);
@@ -18,7 +18,7 @@ exports.addUser = async (req, res) => {
     if (username !== "testuser" || password !== "testpassword") {
       return res.status(401).json({ error: "Invalid username/password" });
     }
-
+   // Find existing user in our In memory Mongo database
     const existingUser = await userModel.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ error: "User already exists" });
