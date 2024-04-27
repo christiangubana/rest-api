@@ -1,12 +1,15 @@
-import './App.css';
-import Login from '../components/Login';
+import "./App.css";
+import Login from "../components/Login";
+import { ToastContainer } from "react-toastify";
+import Weather from "../components/Weather";
 
 function App() {
   return (
     <>
-    <Login/>
+      <ToastContainer />
+      <Weather />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
