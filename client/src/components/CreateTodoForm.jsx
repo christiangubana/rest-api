@@ -54,7 +54,7 @@ const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
 
       if (isUpdating) {
         const response = await axios.put(
-          `http://localhost:8080/api/todos/${initialData._id}`,
+          `http://localhost:8080/api/todos/${initialData.id}`,
           formData,
           config
         );

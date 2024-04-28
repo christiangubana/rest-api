@@ -46,7 +46,8 @@ const Dashboard = () => {
           "Content-Type": "application/json",
         },
       });
-      setTodos(todos.filter((todo) => todo._id !== todoId));
+      setTodos(todos.filter((todo) => todo.id !== todoId));
+      console.log(todo)
       toast.success("Todo item removed successfully", {
         position: "top-center",
       });
@@ -57,6 +58,7 @@ const Dashboard = () => {
   };
 
   const handleEdit = (todoId) => {
+    console.log(todoId)
     navigate(`/edit/${todoId}`);
   };
 
@@ -76,38 +78,41 @@ const Dashboard = () => {
                 There's no todo to show. Start adding new items to the list.
               </p>
             ) : (
-              todos.map((todo) => (
-                <div
-                  key={todo._id}
-                  className="rounded-lg overflow-hidden shadow-md"
-                >
-                  <div className="px-4 py-4">
-                    <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                      {todo.title}
-                    </h2>
-                    <p className="text-gray-700">{todo.description}</p>
-                    <div className="flex justify-between items-center mt-4">
-                      <div className="flex">
-                        <button
-                          onClick={() => handleEdit(todo._id)}
-                          className="hover:text-blue-700 focus:outline-none bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDelete(todo._id)}
-                          className="text-red-500 hover:text-red-700 focus:outline-none bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2"
-                        >
-                          Delete
-                        </button>
+              todos.map((todo) => {
+                console.log(todo.id)
+                return (
+                  <div
+                    key={todo.id}
+                    className="rounded-lg overflow-hidden shadow-md"
+                  >
+                    <div className="px-4 py-4">
+                      <h2 className="text-lg font-semibold text-gray-900 mb-2">
+                        {todo.title}
+                      </h2>
+                      <p className="text-gray-700">{todo.description}</p>
+                      <div className="flex justify-between items-center mt-4">
+                        <div className="flex">
+                          <button
+                            onClick={() => handleEdit(todo.id)}
+                            className="hover:text-blue-700 focus:outline-none bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDelete(todo.id)}
+                            className="text-red-500 hover:text-red-700 focus:outline-none bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2"
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </div>
+                      <p className="text-sm text-gray-500 mt-2">
+                        Created at {formatDate(todo.createdAt)}
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Created at {formatDate(todo.createdAt)}
-                    </p>
                   </div>
-                </div>
-              ))
+                )
+              })
             )}
           </div>
           <div className="flex justify-end mt-6">
