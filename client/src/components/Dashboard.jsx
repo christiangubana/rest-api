@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
- console.log(todos)
+
   useEffect(() => {
     const fetchTodos = async () => {
       try {
@@ -18,7 +18,6 @@ const Dashboard = () => {
         const response = await axios.get("http://localhost:8080/api/todos", {
           headers: {
             'Content-Type': 'application/json',
-            //Make sure username/password is passed in the headers
           },
         });
         setTodos(response.data);
