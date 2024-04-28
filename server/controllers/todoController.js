@@ -18,7 +18,7 @@ exports.getTodoById = (req, res) => {
     const { id } = req.params;
     const todo = todoService.getTodoById(id);
     if (!todo) {
-      return res.status(404).json({ error: "Todo not found" });
+      return res.status(404).json({ message: "Todo not found" });
     }
     res.json({ id: todo._id, title: todo.title, description: todo.description });
   } catch (error) {

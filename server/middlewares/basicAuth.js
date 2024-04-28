@@ -1,7 +1,7 @@
 const basicAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    return res.status(401).json({ error: "Authorization header is required" });
+    return res.status(401).json({ message: "Authorization header is required" });
   }
 
   const encodedCredentials = authHeader.split(" ")[1];
@@ -12,7 +12,7 @@ const basicAuth = (req, res, next) => {
   if (username === "testuser" && password === "testpassword") {
     next();
   } else {
-    res.status(401).json({ error: "Invalid credentials" });
+    res.status(401).json({ message: "Invalid credentials" });
   }
 };
 
