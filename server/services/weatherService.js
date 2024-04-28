@@ -3,8 +3,7 @@ const axios = require("axios");
 // Function to fetch weather data from the third-party API
 async function getWeatherData(city) {
   const API_KEY = process.env.WEATHER_API_KEY;
-  const WEATHER_BASE_URL = proce.env.WEATHER_API_ENDPOINT
-  const apiUrl = `${WEATHER_BASE_URL}?q=${city}&appid=${API_KEY}&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 
   try {
     const response = await axios.get(apiUrl);
