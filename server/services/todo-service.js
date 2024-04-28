@@ -11,12 +11,14 @@ exports.getAllTodos = () => {
   return todos;
 };
 exports.getTodoById = (id) => {
-  return todos.find((todo) => todo.id === id);
+  return todos.find((todo) => todo._id.toString() === id);
 };
 
 exports.updateTodoById = (id, updatedTodo) => {
   const index = todos.findIndex((todo) => todo.id === id);
   if (index !== -1) {
+    // Retain the original _id field
+    updatedTodo._id = todos[index]._id;
     todos[index] = updatedTodo;
     return updatedTodo;
   }

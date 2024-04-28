@@ -58,7 +58,7 @@ const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
           formData,
           config
         );
-        onUpdate(response.data.todo);
+        onUpdate(response.data);
       } else {
         await axios.post(`http://localhost:8080/api/todos`, formData, config);
         toast.success("Todo item added successfully", {

@@ -10,7 +10,7 @@ const EditTodoForm = () => {
   const [todoData, setTodoData] = useState(null);
 
   useEffect(() => {
-    const fetchTodotem = async () => {
+    const fetchTodoItem = async () => {
       try {
         const response = await axios.get(
           `http://localhost:8080/api/todos/${itemId}`,
@@ -30,7 +30,7 @@ const EditTodoForm = () => {
       }
     };
 
-    fetchTodotem();
+    fetchTodoItem();
   }, [itemId, navigate]);
 
   const handleUpdate = async (updatedTodo) => {
@@ -40,7 +40,7 @@ const EditTodoForm = () => {
         updatedTodo,
         {
           headers: {
-            "Content-Type": "application/json", // Specify Content-Type as JSON
+            "Content-Type": "application/json",
           },
         }
       );

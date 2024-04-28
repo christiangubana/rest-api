@@ -47,10 +47,10 @@ const Dashboard = () => {
         },
       });
       setTodos(todos.filter((todo) => todo.id !== todoId));
-      console.log(todo)
       toast.success("Todo item removed successfully", {
         position: "top-center",
       });
+      console.log(todoId)
     } catch (error) {
       console.error("Error deleting todo item:", error);
       toast.error(error.response.data.message);
@@ -58,7 +58,6 @@ const Dashboard = () => {
   };
 
   const handleEdit = (todoId) => {
-    console.log(todoId)
     navigate(`/edit/${todoId}`);
   };
 
@@ -79,7 +78,7 @@ const Dashboard = () => {
               </p>
             ) : (
               todos.map((todo) => {
-                console.log(todo.id)
+                // console.log(todo.id)
                 return (
                   <div
                     key={todo.id}
