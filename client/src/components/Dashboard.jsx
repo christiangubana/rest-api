@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
-
+ console.log(todos)
   useEffect(() => {
     const fetchTodos = async () => {
       try {

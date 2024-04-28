@@ -4,7 +4,7 @@ exports.addTodo = (req, res) => {
   try {
     const { title, description } = req.body;
     const todo = todoService.addTodo({ title, description });
-    res.status(201).json({ id: todo._id, title: todo.title, description: todo.description, msg: "Todo added successfully" });
+    res.status(201).json({ id: todo._id, title: todo.title, description: todo.description, message: "Todo added successfully" });
     console.log(todo); //check the value of todo
   } catch (error) {
     console.error(error);
@@ -59,7 +59,7 @@ exports.deleteTodoById = (req, res) => {
 exports.getAllTodos = (req, res) => {
   try {
     const todos = todoService.getAllTodos();
-    res.json(todos.map(todo => ({ id: todo._id, title: todo.title, description: todo.description })));
+    res.json(todos.map(todo => ({ id: todo._id, title: todo.title, description: todo.description, createdAt: todo.createdAt, })));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
