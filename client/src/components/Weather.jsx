@@ -46,7 +46,7 @@ const Weather = () => {
   };
 
   return (
-    <div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+    <div className="sm:min-w-screen md:min-w-60 min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
       <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-2/4 overflow-hidden">
         <div className="px-6 py-4">
           <div className="text-center mb-10">
