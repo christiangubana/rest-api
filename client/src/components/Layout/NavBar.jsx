@@ -34,6 +34,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, userName }) => {
                 ) : (
                   <>
                     <Link to="/login" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</Link>
+                    <Link to="/weather" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Weather</Link>
                   </>
                 )}
               </div>
