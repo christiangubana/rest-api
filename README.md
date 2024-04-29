@@ -69,13 +69,13 @@ $ npm start or nodemon // run it locally
 This is spin your server side project in the terminal and you should be able to see something like:
 
 
-```
+```terminal
 MongoDB successfully connected to mongodb://127.0.0.1:46629/
 Server running on http://localhost:8080
 ```
 
 You should be able to access in the browser via
- ``` http://localhost:8080/api```
+ http://localhost:8080/api
 
 
 
@@ -115,12 +115,17 @@ This application only accept one single user, and those are the credentials.
 
 ## Update
 
-``` Testing all the API works well on Postman and Thunder Client 
+```Testing all the API works well on Postman and Thunder Client 
  One improvement is needed with the Edit functionality on the Client side where, you can easily edit the item and it get updated, but you response return as failed, and Not Found 
  ``````
 
 
-## Unity Testing
+## How to run the unity tests
+```terminal
+$ cd server // go to server folder
+$ npm run test // to execute the unity test
+```
+
 
 # Dependencies(tech-stacks)
 Client-side | Server-side
@@ -140,6 +145,7 @@ react-dom: "^18.2.0 | "mongodb-memory-server": "^9.2.0"
 Language: 
 
  └── client side: JavaScription, React.js TailwindCSS
+ |
  └── server side: Node.JS, Express.JS, Mongodb-memory-server
 
 IDE: Visual Studio
