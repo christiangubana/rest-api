@@ -1,8 +1,8 @@
 FULL STACK REST API
 
 ## Summary
-A basic REST API using Node.js/Express/mongodb-memory-server for the server-side, & React.js/TailwindCSS for the client-side
-Because we're using In-memory Database, the server only keep your data in memory while the server is up and running, which means
+A basic REST API using Node.js/Express/MongoDB-memory-server for the server-side, & React.js/TailwindCSS for the client-side
+Because we're using an In-memory Database, the server only keeps your data in memory while the server is up and running, which means
 You'll be required to restart the server each time you want to make certain operation with the API
 
 <p>Step-by-step guide on how to get this application up and running on your local machine</p>
@@ -39,7 +39,7 @@ Make sure you have Node installed in your machine
 - [Node](https://nodejs.org/en/download/current) ^20.0.0
 - [npm](https://nodejs.org/en/download/package-manager/)
 
-notice, you need client and server runs concurrently in different terminal session, in order to make them talk to each other
+notice, that you need the client and server to run concurrently in a different terminal session, in order to make them talk to each other
 
 ## Client-side usage(PORT: 3000)
 ```terminal
@@ -50,10 +50,10 @@ $ npm run dev // to port on http://localhost:3000/
 
 ## Server-side usage(PORT: 8080)
 
-### Prepare the connection with In-Memory-Database - mongodb-memory-server
+### Prepare the connection with In-Memory-Database - MongoDB-memory-server
 
 #### IMPORTANT NOTE 
-This project required a MongoDB connection setup. Setup the connection based on the environments below.
+This project required a MongoDB connection setup set up connection.
 You should at least have 10 GB of free disk space plus whatever space is necessary to hold your MongoDB data. At least 4 GB of RAM.
 ``````
 
@@ -66,7 +66,7 @@ $ npm i // npm install packages
 $ npm start or nodemon // run it locally
 ```
 
-This is spin your server side project in the terminal and you should be able to see something like:
+This will spin your server-side project in the terminal and you should be able to see something like this:
 
 
 ```terminal
@@ -74,7 +74,7 @@ MongoDB successfully connected to mongodb://127.0.0.1:46629/
 Server running on http://localhost:8080
 ```
 
-You should be able to access in the browser via
+You should be able to access it the browser via
  http://localhost:8080/api
 
 
@@ -101,7 +101,7 @@ c. Weather Endpoint
    GET: http://localhost:8080/api/weather?city=London (change London to any City you want)
 
 ### Instruction on how to make use of GET user API
-This api endpoint requires that you pass the username & password in the headers before you can access it
+This API endpoint requires that you pass the username & password in the headers before you can access it
 
 1. Go on Postman
    a. click Authorization
@@ -115,7 +115,7 @@ This application only accept one single user, and those are the credentials.
 
 ## Update
 
-```Testing all the API works well on Postman and Thunder Client 
+``` Testing all the API works well on Postman and Thunder Client 
  One improvement is needed with the Edit functionality, you can Create/Edit/Delete an item.
  But once you Edit an item successfully and try to Delete the same Item, I get a Faile response with 404, but the item ID is present in the DB. 
  ``````
@@ -145,9 +145,9 @@ react-dom: "^18.2.0 | "mongodb-memory-server": "^9.2.0"
 
 Language: 
 
- └── client side: JavaScription, React.js TailwindCSS
+ └── client-side: JavaScription, React.js TailwindCSS
  |
- └── server side: Node.JS, Express.JS, Mongodb-memory-server
+ └── server-side: Node.JS, Express.JS, Mongodb-memory-server
 
 IDE: Visual Studio
 
