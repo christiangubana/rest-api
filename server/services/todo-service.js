@@ -7,9 +7,11 @@ exports.addTodo = (todo) => {
   todos.push(newTodo);
   return newTodo; // Return the new todo object
 };
+
 exports.getAllTodos = () => {
   return todos;
 };
+
 exports.getTodoById = (id) => {
   return todos.find((todo) => todo._id.toString() === id);
 };
