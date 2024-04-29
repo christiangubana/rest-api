@@ -8,6 +8,7 @@ You'll be required to restart the server each time you want to make certain oper
 <p>Step-by-step guide on how to get this application up and running on your local machine</p>
 
 ## clone or download
+
 ```terminal
 $ git clone https://github.com/christiangubana/rest-api.git
 ```
@@ -64,12 +65,17 @@ $ cd server
 $ npm i // npm install packages
 $ npm start or nodemon // run it locally
 ```
+
 This is spin your server side project in the terminal and you should be able to see something like:
 
-```MongoDB successfully connected to mongodb://127.0.0.1:46629/```
-```Server running on http://localhost:8080```
 
-You should be able to access in the browser via ```http://localhost:8080/api```
+```
+MongoDB successfully connected to mongodb://127.0.0.1:46629/
+Server running on http://localhost:8080
+```
+
+You should be able to access in the browser via
+ ``` http://localhost:8080/api```
 
 
 
@@ -109,8 +115,9 @@ This application only accept one single user, and those are the credentials.
 
 ## Update
 
-```Testing all the API works well on Postman and Thunder Client``` 
-```One improvement is needed with the Edit functionality on the Client side where, you can easily edit the item and it get updated, but you response return as failed, and Not Found```
+``` Testing all the API works well on Postman and Thunder Client 
+ One improvement is needed with the Edit functionality on the Client side where, you can easily edit the item and it get updated, but you response return as failed, and Not Found 
+ ``````
 
 
 ## Unity Testing
