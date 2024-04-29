@@ -116,7 +116,8 @@ This application only accept one single user, and those are the credentials.
 ## Update
 
 ```Testing all the API works well on Postman and Thunder Client 
- One improvement is needed with the Edit functionality on the Client side where, you can easily edit the item and it get updated, but you response return as failed, and Not Found 
+ One improvement is needed with the Edit functionality, you can Create/Edit/Delete an item.
+ But once you Edit an item successfully and try to Delete the same Item, I get a Faile response with 404, but the item ID is present in the DB. 
  ``````
 
 
