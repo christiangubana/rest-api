@@ -19,7 +19,7 @@ LICENSE
 package.json
 server/
    package.json
-   .env (create this file in the root directory of the server folder, this is where you'll pass all the secret keys, like the weather API KEY)
+   .env (create this file in the root directory of the client folder, this is where you'll pass all the secret keys, like the weather API KEY)
 client/
    package.json
 
