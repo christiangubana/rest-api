@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -38,6 +38,10 @@ const Dashboard = () => {
     fetchTodos();
   }, []);
 
+  useEffect(() => {
+  }, [todos]); // Dependency array with todos as the dependency
+
+
   const handleDelete = async (todoId) => {
     try {
       await axios.delete(`http://localhost:8080/api/todos/${todoId}`, {
@@ -45,7 +49,7 @@ const Dashboard = () => {
           "Content-Type": "application/json",
         },
       });
-      setTodos(todos.filter((todo) => todo.id !== todoId));
+      setTodos(todos.filter((todo) => todo._id !== todoId)); 
       toast.success("Todo item removed successfully", {
         position: "top-center",
       });
@@ -80,7 +84,7 @@ const Dashboard = () => {
                 // console.log(todo.id)
                 return (
                   <div
-                    key={todo.id}
+                    key={todo._id}
                     className="rounded-lg overflow-hidden shadow-md"
                   >
                     <div className="px-4 py-4">
@@ -91,13 +95,13 @@ const Dashboard = () => {
                       <div className="flex justify-between items-center mt-4">
                         <div className="flex">
                           <button
-                            onClick={() => handleEdit(todo.id)}
+                            onClick={() => handleEdit(todo._id)}
                             className="hover:text-blue-700 focus:outline-none bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                           >
                             Edit
                           </button>
                           <button
-                            onClick={() => handleDelete(todo.id)}
+                            onClick={() => handleDelete(todo._id)}
                             className="text-red-500 hover:text-red-700 focus:outline-none bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2"
                           >
                             Delete

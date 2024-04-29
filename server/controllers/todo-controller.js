@@ -1,5 +1,5 @@
-// controllers/todoController.js
 const todoService = require("../services/todo-service");
+
 exports.addTodo = (req, res) => {
   try {
     const { title, description } = req.body;
@@ -19,7 +19,7 @@ exports.getTodoById = (req, res) => {
     if (!todo) {
       return res.status(404).json({ message: "Todo not found" });
     }
-    res.json({ id: todo._id, title: todo.title, description: todo.description });
+    res.json({ _id: todo._id, title: todo.title, description: todo.description });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -55,11 +55,10 @@ exports.deleteTodoById = (req, res) => {
   }
 };
 
-
 exports.getAllTodos = (req, res) => {
   try {
     const todos = todoService.getAllTodos();
-    res.json(todos.map(todo => ({ id: todo._id, title: todo.title, description: todo.description, createdAt: todo.createdAt, })));
+    res.json(todos.map(todo => ({ _id: todo._id, title: todo.title, description: todo.description, createdAt: todo.createdAt })));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
