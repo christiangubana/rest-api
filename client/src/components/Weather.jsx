@@ -99,11 +99,11 @@ const Weather = () => {
           </form>
         </div>
         {weatherData && weatherData.main && (
-          <div className="px-6 py-4 bg-yellow-400">
+          <div className="px-6 py-4 bg-indigo-500 text-white font-thin">
             <h2 className="text-xl mt-4">
               Weather for {weatherData.name}, {weatherData.sys.country}
             </h2>
-            <div className="flex justify-between">
+            <div className="flex justify-between ">
               <p className="text-lg">Temperature: {weatherData.main.temp}°C</p>
               <img
                 src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
