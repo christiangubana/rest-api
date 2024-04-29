@@ -7,7 +7,7 @@ exports.getUser = async (req, res) => {
     const users = await userModel.find({});
     res.json(users);
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
@@ -16,12 +16,12 @@ exports.addUser = async (req, res) => {
     const { username, password } = req.body;
 
     if (username !== "testuser" || password !== "testpassword") {
-      return res.status(401).json({ error: "Invalid username/password" });
+      return res.status(401).json({ message: "Invalid username/password" });
     }
    // Find existing user in our In memory Mongo database
     const existingUser = await userModel.findOne({ username });
     if (existingUser) {
-      return res.status(400).json({ error: "User already exists" });
+      return res.status(400).json({ message: "User already exists" });
     }
 
     // Generate JWT token
@@ -31,9 +31,9 @@ exports.addUser = async (req, res) => {
 
     const user = new userModel({ username, password });
     await user.save();
-    return res.json({ msg: "User added successfully!", token });
+    return res.json({ message: "User added successfully!", token });
   } catch (error) {
     console.error(error); 
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };

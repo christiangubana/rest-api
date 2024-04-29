@@ -1,11 +1,7 @@
 // routes/todoRoutes.js
 const express = require("express");
 const router = express.Router();
-const todoController = require("../controllers/todoController");
-const basicAuth = require("../middlewares/basicAuth");
-
-// Middleware to apply Basic authentication to todos endpoints
-router.use("/todos", basicAuth);
+const todoController = require("../controllers/todo-controller");
 
 // Todos endpoints
 router.get("/todos", todoController.getAllTodos);
