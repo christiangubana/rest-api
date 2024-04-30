@@ -17,7 +17,6 @@ exports.getTodoById = (id) => {
 };
 
 exports.updateTodoById = (id, updatedTodo) => {
-  // const index = todos.findIndex((todo) => todo.id === id);
   const index = todos.findIndex((todo) => todo._id.toString() === id);
   if (index !== -1) {
     // Retain the original _id field
