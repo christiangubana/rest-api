@@ -92,3 +92,17 @@ Make sure you have one of these tools
 - [Thunder Client](https://www.thunderclient.com/)
 - [Postman](https://www.postman.com/ )
    
+a. User Endpoints
+
+ POST: ```http://localhost:8080/api/add``` To create a user
+ GET: ```http://localhost:8080/api/user``` To get user
+                       |
+                       └── Follow these instruction to be authorized
+                       └── In Postman/Thunder
+                       └── Click Authorization
+                       └── Select Basic Auth
+                       └── Inside username type 'testuser'
+                       └── Inside password type 'testpassword'
+                       └── Click Send.
+
+
