@@ -23,13 +23,13 @@ const Dashboard = () => {
 
         const auth = {
           username: username,
-          password: password
+          password: password,
         };
 
         const response = await axios.get("http://localhost:8080/api/todos", {
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + btoa(`${auth.username}:${auth.password}`)
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
           },
         });
         setTodos(response.data);
@@ -50,23 +50,32 @@ const Dashboard = () => {
     fetchTodos();
   }, []);
 
-  useEffect(() => {
-  }, [todos]); // Dependency array with todos as the dependency
-
+  useEffect(() => {}, [todos]); // Dependency array with todos as the dependency
 
   const handleDelete = async (todoId) => {
     try {
+      const username = localStorage.getItem("username");
+      const password = localStorage.getItem("password");
+      if (!username || !password) {
+        throw new Error("Username or password not found in local storage");
+      }
+
+      const auth = {
+        username: username,
+        password: password,
+      };
+
       await axios.delete(`http://localhost:8080/api/todos/${todoId}`, {
         headers: {
           "Content-Type": "application/json",
-          'Authorization': 'Basic ' + btoa(`${auth.username}:${auth.password}`)
+          Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
         },
       });
-      setTodos(todos.filter((todo) => todo._id !== todoId)); 
+      setTodos(todos.filter((todo) => todo._id !== todoId));
       toast.success("Todo item removed successfully", {
         position: "top-center",
       });
-      console.log(todoId)
+      console.log(todoId);
     } catch (error) {
       console.error("Error deleting todo item:", error);
       toast.error(error.response.data.message);
@@ -126,7 +135,7 @@ const Dashboard = () => {
                       </p>
                     </div>
                   </div>
-                )
+                );
               })
             )}
           </div>
