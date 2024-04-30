@@ -92,7 +92,7 @@ const Dashboard = () => {
                 return (
                   <div
                     key={todo._id}
-                    className="rounded-lg overflow-hidden shadow-md"
+                    className="rounded-lg overflow-hidden shadow-md bg-gray-300	"
                   >
                     <div className="px-4 py-4">
                       <h2 className="text-lg font-semibold text-gray-900 mb-2">
