@@ -98,8 +98,7 @@ a. User Endpoints
 
  GET: ```http://localhost:8080/api/user``` To get user
 
-          |
-          |
+          You mush be login with the right username & password to access these endpoint
           └── Follow these instruction to be authorized
                   └── In Postman/Thunder
                   └── Click Authorization
