@@ -101,17 +101,11 @@ a. User Endpoints
           |
           |
           └── Follow these instruction to be authorized
-                  |
                   └── In Postman/Thunder
-                  |
                   └── Click Authorization
-                  |
                   └── Select Basic Auth
-                  |
                   └── Inside username type 'testuser'     
-                  |
                   └── Inside password type 'testpassword'
-                  |
                   └── Click Send.
                        
 
