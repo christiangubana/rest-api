@@ -29,6 +29,7 @@ const Login = ({ setIsLoggedIn, setUserName }) => {
         username: formData.username,
         password: formData.password,
       };
+
       const response = await axios.post(
         "http://localhost:8080/api/add",
         formData,
@@ -39,9 +40,12 @@ const Login = ({ setIsLoggedIn, setUserName }) => {
           },
         }
       );
-      console.log(response);
+
       const token = response.data.token;
       localStorage.setItem("token", token);
+      localStorage.setItem("username", formData.username); // Store username in local storage
+      localStorage.setItem("password", formData.password); // Store password in local storage
+      
       setIsLoggedIn(true);
       setUserName(formData.username);
       toast.success(response.data.message, {

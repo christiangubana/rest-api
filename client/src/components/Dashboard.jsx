@@ -15,9 +15,21 @@ const Dashboard = () => {
           throw new Error("Token not found in local storage");
         }
 
+        const username = localStorage.getItem("username");
+        const password = localStorage.getItem("password");
+        if (!username || !password) {
+          throw new Error("Username or password not found in local storage");
+        }
+
+        const auth = {
+          username: username,
+          password: password
+        };
+
         const response = await axios.get("http://localhost:8080/api/todos", {
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + btoa(`${auth.username}:${auth.password}`)
           },
         });
         setTodos(response.data);
@@ -47,6 +59,7 @@ const Dashboard = () => {
       await axios.delete(`http://localhost:8080/api/todos/${todoId}`, {
         headers: {
           "Content-Type": "application/json",
+          'Authorization': 'Basic ' + btoa(`${auth.username}:${auth.password}`)
         },
       });
       setTodos(todos.filter((todo) => todo._id !== todoId)); 

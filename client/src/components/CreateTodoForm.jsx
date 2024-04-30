@@ -44,17 +44,29 @@ const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
     if (!validateForm()) {
       return;
     }
-    
+
+    const username = localStorage.getItem("username");
+    const password = localStorage.getItem("password");
+    if (!username || !password) {
+      throw new Error("Username or password not found in local storage");
+    }
+
+    const auth = {
+      username: username,
+      password: password,
+    };
+
     try {
       const config = {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
         },
       };
 
       if (isUpdating) {
         const response = await axios.put(
-          `http://localhost:8080/api/todos/${initialData._id}`, 
+          `http://localhost:8080/api/todos/${initialData._id}`,
           formData,
           config
         );

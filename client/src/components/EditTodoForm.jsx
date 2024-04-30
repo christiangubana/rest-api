@@ -11,12 +11,26 @@ const EditTodoForm = () => {
 
   useEffect(() => {
     const fetchTodoItem = async () => {
+
+      const username = localStorage.getItem("username");
+        const password = localStorage.getItem("password");
+        if (!username || !password) {
+          throw new Error("Username or password not found in local storage");
+        }
+
+        const auth = {
+          username: username,
+          password: password
+        };
+
+
       try {
         const response = await axios.get(
           `http://localhost:8080/api/todos/${itemId}`,
           {
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
             },
           }
         );
@@ -41,6 +55,7 @@ const EditTodoForm = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
           },
         }
       );
