@@ -101,11 +101,18 @@ a. User Endpoints
 b. Todos Endpoints
 
  GET: ```http://localhost:8080/api/todos```  To get all todos
+
  POST: ```http://localhost:8080/api/todos``` To create todos
+
  GET: ```http://localhost:8080/api/todos/:id``` To get todos by ID
+
  PUT: ```http://localhost:8080/api/todos/:id``` To update todo by ID
+ 
  DELETE: ```http://localhost:8080/api/todos/:id``` To Delete todo by ID
 
+c. Weather Endpoint
+
+GET: ```http://localhost:8080/api/weather?city=London``` (change London to any City you want)
 
 * Authentication headers
 
