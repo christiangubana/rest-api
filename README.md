@@ -46,15 +46,9 @@ The client(frontend) and server(backend) run concurrently in a different termina
 
 ## 4. Configure Environment Variables
 
-a. Create a .env file in the root of the client directory and add the following environment variables:
-   
-   1. ```REACT_APP_API_BASE_URL=http://localhost:8080/api```
+* Create a .env file in the root of the server directory and add the following environment variables:
 
-   Replace http://localhost:8080/api with the base URL of your backend API.
-
-b. Create a .env file in the root of the server directory and add the following environment variables:
-
-   2. ```WEATHER_API_KEY=your-weather-api-key-goes-hear```
+   ```WEATHER_API_KEY=your-weather-api-key-goes-hear```
 
 ## 5. Start the Development server/client
 
