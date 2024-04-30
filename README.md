@@ -136,14 +136,13 @@ $ npm run test // to execute the unity test
 Client-side | Server-side
 --- | ---
 axios: ^1.6.8 | "chai": "^5.1.0",
-chart.js": "^3.1.0 | cors": "^2.8.5
 react: "^18.2.0 | dotenv": "^16.4.5
-react: ^16.2.0 | express": "^4.18.3
-react-chartjs-2: "^3.0.0 |  "mocha": "^10.4.0",
+react-toastify": ^10.0.52 |  "mocha": "^10.4.0",
 react-dom: "^18.2.0 | jsonwebtoken": "^9.0.2
 react-router-dom: ^6.22.3 | mongoose": "^8.2.2
-react-toastify": ^10.0.52 | mongoose-unique-validator": "^5.0.0
 react-dom: "^18.2.0 | "mongodb-memory-server": "^9.2.0"
+                    | cors": "^2.8.5
+                    |express": "^4.18.3
 
 
 ## Contributing
