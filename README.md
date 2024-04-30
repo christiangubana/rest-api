@@ -77,8 +77,18 @@ $ npm start or nodemon // to port on http://localhost:8080/api
 ## Usage on client-side
 
 - Upon starting the development server, navigate to http://localhost:3000 in your web browser.
-- If you don't have an account, you can register by clicking on the "Register" link on the login page.
-- After registering or if you already have an account, log in using your credentials.
+- This application is for a single username, login with the following credentials.
+- for username put 'testuser' & for password put 'testpassword'
 - Once logged in, you will be redirected to the dashboard where you can view, add, edit, and delete todos.
 - You can also navigate to the weather page to check the weather forecast.
 - To log out, click on the "Logout" button in the navbar.
+
+## Usage of APIs endpoints
+
+### Usage (Prerequisites)
+
+Make sure you have one of these tools
+
+- [Thunder Client](https://www.thunderclient.com/)
+- [Postman](https://www.postman.com/ )
+   
