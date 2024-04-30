@@ -77,7 +77,7 @@ $ npm start or nodemon // to port on http://localhost:8080/api
 ## Usage on client-side
 
 - Upon starting the development server, navigate to http://localhost:3000 in your web browser.
-- This application is for a single username, login with the following credentials.
+- This application is for a single username, log in with the following credentials.
 - for username put 'testuser' & for password put 'testpassword'
 - Once logged in, you will be redirected to the dashboard where you can view, add, edit, and delete todos.
 - You can also navigate to the weather page to check the weather forecast.
@@ -116,8 +116,8 @@ GET: ```http://localhost:8080/api/weather?city=London``` (change London to any C
 
 * Authentication headers
 
-          You mush be login with the right username & password to access these endpoints
-          └── Follow these instruction to be authorized
+          You must be login with the right username & password to access these endpoints
+          └── Follow these instructions to be authorized
                   └── In Postman/Thunder
                   └── Click Authorization
                   └── Select Basic Auth
@@ -131,18 +131,6 @@ GET: ```http://localhost:8080/api/weather?city=London``` (change London to any C
 $ cd server // go to server folder
 $ npm run test // to execute the unity test
 ```
-
-## Dependencies(tech-stacks)
-Client-side | Server-side
---- | ---
-axios: ^1.6.8 | "chai": "^5.1.0",
-react: "^18.2.0 | dotenv": "^16.4.5
-react-toastify": ^10.0.52 |  "mocha": "^10.4.0",
-react-dom: "^18.2.0 | jsonwebtoken": "^9.0.2
-react-router-dom: ^6.22.3 | mongoose": "^8.2.2
-react-dom: "^18.2.0 | "mongodb-memory-server": "^9.2.0"
-                    | cors": "^2.8.5
-                    |express": "^4.18.3
 
 
 ## Contributing
