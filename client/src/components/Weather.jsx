@@ -13,8 +13,23 @@ const Weather = () => {
   const fetchWeatherData = async () => {
     setLoading(true);
     try {
+
+      const username = localStorage.getItem("username");
+      const password = localStorage.getItem("password");
+      if (!username || !password) {
+        throw new Error("Username or password not found in local storage");
+      }
+
+      const auth = {
+        username: username,
+        password: password,
+      };
       const response = await axios.get(`${API_BASE_URL}/api/weather`, {
         params: { city },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
+        },
       });
 
       if (response.status === 200) {
