@@ -56,13 +56,16 @@ b. Create a .env file in the root of the server directory and add the following 
 
    2. ```WEATHER_API_KEY=your-weather-api-key-goes-hear```
 
-## 5. Start the Development
+## 5. Start the Development server/client
 
 ### Client
 ```terminal
 $ cd client 
 $ npm i // npm install packages
 $ npm run dev // to port on http://localhost:3000/
+
+This command will start the development server and open the application in your default web browser.
+
 ```
 ### Server
 ```terminal
@@ -70,3 +73,12 @@ $ cd server
 $ npm i // npm install packages
 $ npm start or nodemon // to port on http://localhost:8080/api
 ```
+
+## Usage on client-side
+
+- Upon starting the development server, navigate to http://localhost:3000 in your web browser.
+- If you don't have an account, you can register by clicking on the "Register" link on the login page.
+- After registering or if you already have an account, log in using your credentials.
+- Once logged in, you will be redirected to the dashboard where you can view, add, edit, and delete todos.
+- You can also navigate to the weather page to check the weather forecast.
+- To log out, click on the "Logout" button in the navbar.
