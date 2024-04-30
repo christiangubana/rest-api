@@ -30,5 +30,4 @@ The folder name is rest-api
     ├── client/
     ├── server/
     └── docker-compose.yml
-...
 ```
