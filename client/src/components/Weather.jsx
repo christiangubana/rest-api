@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import API_BASE_URL from "../../api/config";
+import { getAuthFromLocalStorage } from "../utils/authUtils";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -13,17 +14,8 @@ const Weather = () => {
   const fetchWeatherData = async () => {
     setLoading(true);
     try {
-
-      const username = localStorage.getItem("username");
-      const password = localStorage.getItem("password");
-      if (!username || !password) {
-        throw new Error("Username or password not found in local storage");
-      }
-
-      const auth = {
-        username: username,
-        password: password,
-      };
+      
+      const auth = getAuthFromLocalStorage();
       const response = await axios.get(`${API_BASE_URL}/api/weather`, {
         params: { city },
         headers: {

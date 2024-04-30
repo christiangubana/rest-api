@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import CreateTodoForm from "./CreateTodoForm";
+import { getAuthFromLocalStorage } from "../utils/authUtils";
 
 const EditTodoForm = () => {
   const { itemId } = useParams();
@@ -11,16 +12,8 @@ const EditTodoForm = () => {
 
   useEffect(() => {
     const fetchTodoItem = async () => {
-      const username = localStorage.getItem("username");
-      const password = localStorage.getItem("password");
-      if (!username || !password) {
-        throw new Error("Username or password not found in local storage");
-      }
-
-      const auth = {
-        username: username,
-        password: password,
-      };
+      
+      const auth = getAuthFromLocalStorage();
 
       try {
         const response = await axios.get(
@@ -48,16 +41,8 @@ const EditTodoForm = () => {
 
   const handleUpdate = async (updatedTodo) => {
     try {
-      const username = localStorage.getItem("username");
-      const password = localStorage.getItem("password");
-      if (!username || !password) {
-        throw new Error("Username or password not found in local storage");
-      }
+      const auth = getAuthFromLocalStorage();
 
-      const auth = {
-        username: username,
-        password: password,
-      };
       await axios.put(
         `http://localhost:8080/api/todos/${itemId}`,
         updatedTodo,

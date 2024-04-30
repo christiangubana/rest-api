@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { getAuthFromLocalStorage } from "../utils/authUtils";
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
@@ -15,16 +16,7 @@ const Dashboard = () => {
           throw new Error("Token not found in local storage");
         }
 
-        const username = localStorage.getItem("username");
-        const password = localStorage.getItem("password");
-        if (!username || !password) {
-          throw new Error("Username or password not found in local storage");
-        }
-
-        const auth = {
-          username: username,
-          password: password,
-        };
+        const auth = getAuthFromLocalStorage();
 
         const response = await axios.get("http://localhost:8080/api/todos", {
           headers: {
@@ -54,16 +46,7 @@ const Dashboard = () => {
 
   const handleDelete = async (todoId) => {
     try {
-      const username = localStorage.getItem("username");
-      const password = localStorage.getItem("password");
-      if (!username || !password) {
-        throw new Error("Username or password not found in local storage");
-      }
-
-      const auth = {
-        username: username,
-        password: password,
-      };
+      const auth = getAuthFromLocalStorage();
 
       await axios.delete(`http://localhost:8080/api/todos/${todoId}`, {
         headers: {

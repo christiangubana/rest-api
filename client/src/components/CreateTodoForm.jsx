@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { getAuthFromLocalStorage } from "../utils/authUtils";
 
 const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
   const [formData, setFormData] = useState({
@@ -45,16 +46,7 @@ const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
       return;
     }
 
-    const username = localStorage.getItem("username");
-    const password = localStorage.getItem("password");
-    if (!username || !password) {
-      throw new Error("Username or password not found in local storage");
-    }
-
-    const auth = {
-      username: username,
-      password: password,
-    };
+    const auth = getAuthFromLocalStorage();
 
     try {
       const config = {
