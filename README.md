@@ -5,3 +5,18 @@ This project is a web application built using Node.js/Express/MongoDB-memory-ser
 Because it uses an In-memory Database, the server only keeps your data in memory while the server is up and running, which means
 yoou'll be required to restart the server each time you want to make certain operation with the API.
 
+
+## Installation
+
+To run this project on your local computer, follow these steps:
+
+### 1. Clone the Repository
+
+```terminal
+$ git clone https://github.com/christiangubana/rest-api.git
+```
+
+### 2. Navigate to the Project Directory
+
+```cd project-name``` 
+The folder name is rest-api
