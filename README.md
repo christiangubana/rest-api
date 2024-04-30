@@ -144,3 +144,20 @@ react-dom: "^18.2.0 | jsonwebtoken": "^9.0.2
 react-router-dom: ^6.22.3 | mongoose": "^8.2.2
 react-toastify": ^10.0.52 | mongoose-unique-validator": "^5.0.0
 react-dom: "^18.2.0 | "mongodb-memory-server": "^9.2.0"
+
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature-name).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature/your-feature-name).
+Create a new Pull Request.
+
+
+## License
+
+This project is licensed under the [ MIT License](https://github.com/christiangubana/rest-api.git)
