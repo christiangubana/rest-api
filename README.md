@@ -98,7 +98,18 @@ a. User Endpoints
 
  GET: ```http://localhost:8080/api/user``` To get user
 
-          You mush be login with the right username & password to access these endpoint
+b. Todos Endpoints
+
+ GET: ```http://localhost:8080/api/todos```  To get all todos
+ POST: ```http://localhost:8080/api/todos``` To create todos
+ GET: ```http://localhost:8080/api/todos/:id``` To get todos by ID
+ PUT: ```http://localhost:8080/api/todos/:id``` To update todo by ID
+ DELETE: ```http://localhost:8080/api/todos/:id``` To Delete todo by ID
+
+
+* Authentication headers
+
+          You mush be login with the right username & password to access these endpoints
           └── Follow these instruction to be authorized
                   └── In Postman/Thunder
                   └── Click Authorization
