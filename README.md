@@ -40,3 +40,5 @@ Make sure you have Node installed in your machine
 
 - [Node](https://nodejs.org/en/download/current) ^20.0.0
 - [npm](https://nodejs.org/en/download/package-manager/)
+
+The client(frontend) and server(backend) run concurrently in a different terminal session, in order to make them talk to each other
