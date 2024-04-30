@@ -3,6 +3,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { getAuthFromLocalStorage } from "../utils/authUtils";
+import API_BASE_URL from "../../api/config";
+
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
@@ -18,7 +20,7 @@ const Dashboard = () => {
 
         const auth = getAuthFromLocalStorage();
 
-        const response = await axios.get("http://localhost:8080/api/todos", {
+        const response = await axios.get(`${API_BASE_URL}/api/todos`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
@@ -48,7 +50,7 @@ const Dashboard = () => {
     try {
       const auth = getAuthFromLocalStorage();
 
-      await axios.delete(`http://localhost:8080/api/todos/${todoId}`, {
+      await axios.delete(`${API_BASE_URL}/api/todos/${todoId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),

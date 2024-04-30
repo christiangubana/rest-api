@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import API_BASE_URL from "../../api/config";
 
 const Login = ({ setIsLoggedIn, setUserName }) => {
   const [formData, setFormData] = useState({
@@ -30,16 +31,12 @@ const Login = ({ setIsLoggedIn, setUserName }) => {
         password: formData.password,
       };
 
-      const response = await axios.post(
-        "http://localhost:8080/api/add",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
-          },
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/add`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
+        },
+      });
 
       const token = response.data.token;
       localStorage.setItem("token", token);

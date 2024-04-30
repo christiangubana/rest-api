@@ -4,6 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import CreateTodoForm from "./CreateTodoForm";
 import { getAuthFromLocalStorage } from "../utils/authUtils";
+import API_BASE_URL from "../../api/config";
+
 
 const EditTodoForm = () => {
   const { itemId } = useParams();
@@ -16,7 +18,7 @@ const EditTodoForm = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/todos/${itemId}`,
+          `${API_BASE_URL}/api/todos/${itemId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -43,7 +45,7 @@ const EditTodoForm = () => {
       const auth = getAuthFromLocalStorage();
 
       await axios.put(
-        `http://localhost:8080/api/todos/${itemId}`,
+        `${API_BASE_URL}/api/todos/${itemId}`,
         updatedTodo,
         {
           headers: {
