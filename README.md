@@ -31,3 +31,12 @@ The folder name is rest-api
     ├── server/
     └── docker-compose.yml
 ```
+
+## 3. Install Dependencies
+
+### Usage (Prerequisites)
+
+Make sure you have Node installed in your machine
+
+- [Node](https://nodejs.org/en/download/current) ^20.0.0
+- [npm](https://nodejs.org/en/download/package-manager/)
