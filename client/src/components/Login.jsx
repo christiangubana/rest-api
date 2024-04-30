@@ -45,7 +45,7 @@ const Login = ({ setIsLoggedIn, setUserName }) => {
       localStorage.setItem("token", token);
       localStorage.setItem("username", formData.username); // Store username in local storage
       localStorage.setItem("password", formData.password); // Store password in local storage
-      
+
       setIsLoggedIn(true);
       setUserName(formData.username);
       toast.success(response.data.message, {

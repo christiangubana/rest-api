@@ -12,7 +12,6 @@ const EditTodoForm = () => {
 
   useEffect(() => {
     const fetchTodoItem = async () => {
-      
       const auth = getAuthFromLocalStorage();
 
       try {

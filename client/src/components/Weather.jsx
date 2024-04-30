@@ -14,7 +14,6 @@ const Weather = () => {
   const fetchWeatherData = async () => {
     setLoading(true);
     try {
-      
       const auth = getAuthFromLocalStorage();
       const response = await axios.get(`${API_BASE_URL}/api/weather`, {
         params: { city },
