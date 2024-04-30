@@ -4,7 +4,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Login = ({ setIsLoggedIn, setUserName }) => {
   const [formData, setFormData] = useState({
     username: "",
@@ -26,12 +25,21 @@ const Login = ({ setIsLoggedIn, setUserName }) => {
     setIsLoading(true); // Start loading
 
     try {
-      const response = await axios.post("http://localhost:8080/api/add", formData, {
-        headers: {
-          'Content-Type': 'application/json',
+      const auth = {
+        username: formData.username,
+        password: formData.password,
+      };
+      const response = await axios.post(
+        "http://localhost:8080/api/add",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa(`${auth.username}:${auth.password}`),
+          },
         }
-      })
-      console.log(response)
+      );
+      console.log(response);
       const token = response.data.token;
       localStorage.setItem("token", token);
       setIsLoggedIn(true);
