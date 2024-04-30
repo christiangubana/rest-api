@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { getAuthFromLocalStorage } from "../utils/authUtils";
+import API_BASE_URL from "../../api/config";
 
 const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
   const [formData, setFormData] = useState({
@@ -58,13 +59,13 @@ const CreateTodoForm = ({ initialData, onUpdate, onCancelEdit, mode }) => {
 
       if (isUpdating) {
         const response = await axios.put(
-          `http://localhost:8080/api/todos/${initialData._id}`,
+          `${API_BASE_URL}/api/todos/${initialData._id}`,
           formData,
           config
         );
         onUpdate(response.data);
       } else {
-        await axios.post(`http://localhost:8080/api/todos`, formData, config);
+        await axios.post(`${API_BASE_URL}/api/todos`, formData, config);
         toast.success("Todo item added successfully", {
           position: "top-center",
         });
