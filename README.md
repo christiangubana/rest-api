@@ -1,125 +1,130 @@
-FULL STACK REST API
+# FULL STACK REST API
 
-## Summary
-A basic REST API using Node.js/Express/MongoDB-memory-server for the server-side, & React.js/TailwindCSS for the client-side
-Because we're using an In-memory Database, the server only keeps your data in memory while the server is up and running, which means
-You'll be required to restart the server each time you want to make certain operation with the API
+## Description
+This project is a web application built using Node.js/Express/MongoDB-memory-server and [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) and User authentication to help to identify verified users before allowing them access/managing todos item. It includes features such as user authentication, dashboard for displaying todos, weather page, and basic navigation. The backend API for managing todos is assumed to be available at ``` http://localhost:8080/api``` and the client side is built in React.js/Tailwindcss
+Because it uses an In-memory Database, the server only keeps your data in memory while the server is up and running, which means
+yoou'll be required to restart the server each time you want to make certain operation with the API.
 
-<p>Step-by-step guide on how to get this application up and running on your local machine</p>
 
-## clone or download
+## Installation
+
+To run this project on your local computer, follow these steps:
+
+### 1. Clone the Repository
 
 ```terminal
 $ git clone https://github.com/christiangubana/rest-api.git
 ```
 
-## project structure
-```terminal
-LICENSE
-package.json
-server/
-   package.json
-   .env (create this file in the root directory of the server folder, this is where you'll pass all the secret keys, like the weather API KEY)
-client/
-   package.json
+### 2. Navigate to the Project Directory
 
-   -------------------
+```cd project-name``` 
+The folder name is rest-api
+
+
+## project structure
+
+```terminal
    
-   └── rest-api/
+   └── res-api/       
     ├── client/
-    └── server/
-    └── test-unity/
-...
+    ├── server/
+    └── docker-compose.yml
 ```
 
-## Usage (Prerequisites)
+## 3. Install Dependencies
+
+### Usage (Prerequisites)
 
 Make sure you have Node installed in your machine
 
 - [Node](https://nodejs.org/en/download/current) ^20.0.0
 - [npm](https://nodejs.org/en/download/package-manager/)
 
-notice, that you need the client and server to run concurrently in a different terminal session, in order to make them talk to each other
+The client(frontend) and server(backend) run concurrently in a different terminal session, in order to make them talk to each other.
 
-## Client-side usage(PORT: 3000)
+
+## 4. Configure Environment Variables
+
+a. Create a .env file in the root of the client directory and add the following environment variables:
+   
+   1. ```REACT_APP_API_BASE_URL=http://localhost:8080/api```
+
+   Replace http://localhost:8080/api with the base URL of your backend API.
+
+b. Create a .env file in the root of the server directory and add the following environment variables:
+
+   2. ```WEATHER_API_KEY=your-weather-api-key-goes-hear```
+
+## 5. Start the Development server/client
+
+### Client
 ```terminal
-$ cd client // go to client folder
+$ cd client 
 $ npm i // npm install packages
 $ npm run dev // to port on http://localhost:3000/
+
+This command will start the development server and open the application in your default web browser.
+
 ```
-
-## Server-side usage(PORT: 8080)
-
-### Prepare the connection with In-Memory-Database - MongoDB-memory-server
-
-#### IMPORTANT NOTE 
-This project required a MongoDB connection setup set up connection.
-You should at least have 10 GB of free disk space plus whatever space is necessary to hold your MongoDB data. At least 4 GB of RAM.
-``````
-
-### Start
-
+### Server
 ```terminal
-// in the root level
-$ cd server
+$ cd server 
 $ npm i // npm install packages
-$ npm start or nodemon // run it locally
+$ npm start or nodemon // to port on http://localhost:8080/api
 ```
 
-This will spin your server-side project in the terminal and you should be able to see something like this:
+## Usage on client-side
 
+- Upon starting the development server, navigate to http://localhost:3000 in your web browser.
+- This application is for a single username, login with the following credentials.
+- for username put 'testuser' & for password put 'testpassword'
+- Once logged in, you will be redirected to the dashboard where you can view, add, edit, and delete todos.
+- You can also navigate to the weather page to check the weather forecast.
+- To log out, click on the "Logout" button in the navbar.
 
-```terminal
-MongoDB successfully connected to mongodb://127.0.0.1:46629/
-Server running on http://localhost:8080
-```
+## Usage of APIs endpoints
 
-You should be able to access it the browser via
- http://localhost:8080/api
+### Usage (Prerequisites)
 
-
-
-## How to test all the API endpoints, you can either use: 
+Make sure you have one of these tools
 
 - [Thunder Client](https://www.thunderclient.com/)
 - [Postman](https://www.postman.com/ )
-
-
+   
 a. User Endpoints
 
-// GET: http://localhost:8080/api/user // Get user
-// POST: http://localhost:8080/api/add // Create user
+ POST: ```http://localhost:8080/api/add``` To create a user
+
+ GET: ```http://localhost:8080/api/user``` To get user
 
 b. Todos Endpoints
-// GET: http://localhost:8080/api/todos // Get all todos
-// POST: http://localhost:8080/api/todos // Create todos
-// GET: http://localhost:8080/api/todos/:id // Get todos by ID
-// PUT: http://localhost:8080/api/todos/:id // Update todo by ID
-// DELETE: http://localhost:8080/api/todos/:id // Delete todo by ID
+
+ GET: ```http://localhost:8080/api/todos```  To get all todos
+
+ POST: ```http://localhost:8080/api/todos``` To create todos
+
+ GET: ```http://localhost:8080/api/todos/:id``` To get todos by ID
+
+ PUT: ```http://localhost:8080/api/todos/:id``` To update todo by ID
+
+ DELETE: ```http://localhost:8080/api/todos/:id``` To Delete todo by ID
 
 c. Weather Endpoint
-   GET: http://localhost:8080/api/weather?city=London (change London to any City you want)
 
-### Instruction on how to make use of GET user API
-This API endpoint requires that you pass the username & password in the headers before you can access it
+GET: ```http://localhost:8080/api/weather?city=London``` (change London to any City you want)
 
-1. Go on Postman
-   a. click Authorization
-   b. under Type, select and choose ```Basic Auth```
-   c. you'll see username & password
-   d. inside username put ``testuser``
-   e. inside password put ```testpassword``
+* Authentication headers
 
-This application only accept one single user, and those are the credentials.
-
-
-## Update
-
-``` Testing all the API works well on Postman and Thunder Client 
- One improvement is needed with the Edit functionality, you can Create/Edit/Delete an item.
- But once you Edit an item successfully and try to Delete the same Item, I get a Faile response with 404, but the item ID is present in the DB. 
- ``````
-
+          You mush be login with the right username & password to access these endpoints
+          └── Follow these instruction to be authorized
+                  └── In Postman/Thunder
+                  └── Click Authorization
+                  └── Select Basic Auth
+                  └── Inside username type 'testuser'     
+                  └── Inside password type 'testpassword'
+                  └── Click Send.
+                       
 
 ## How to run the unity tests
 ```terminal
@@ -127,8 +132,7 @@ $ cd server // go to server folder
 $ npm run test // to execute the unity test
 ```
 
-
-# Dependencies(tech-stacks)
+## Dependencies(tech-stacks)
 Client-side | Server-side
 --- | ---
 axios: ^1.6.8 | "chai": "^5.1.0",
@@ -141,18 +145,19 @@ react-router-dom: ^6.22.3 | mongoose": "^8.2.2
 react-toastify": ^10.0.52 | mongoose-unique-validator": "^5.0.0
 react-dom: "^18.2.0 | "mongodb-memory-server": "^9.2.0"
 
-## Tool used
 
-Language: 
+## Contributing
 
- └── client-side: JavaScription, React.js TailwindCSS
- |
- └── server-side: Node.JS, Express.JS, Mongodb-memory-server
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-IDE: Visual Studio
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature-name).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature/your-feature-name).
+Create a new Pull Request.
 
-OS: Windows 11 Pro 64-bit
 
+## License
 
-### License
-[MIT](https://github.com/christiangubana/rest-api.git)
+This project is licensed under the [ MIT License](https://github.com/christiangubana/rest-api.git)
