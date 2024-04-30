@@ -42,3 +42,17 @@ Make sure you have Node installed in your machine
 - [npm](https://nodejs.org/en/download/package-manager/)
 
 The client(frontend) and server(backend) run concurrently in a different terminal session, in order to make them talk to each other
+
+
+### Client
+```terminal
+$ cd client 
+$ npm i // npm install packages
+$ npm run dev // to port on http://localhost:3000/
+```
+### Server
+```terminal
+$ cd server 
+$ npm i // npm install packages
+$ npm start or nodemon // to port on http://localhost:8080/api
+```
