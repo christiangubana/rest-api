@@ -20,3 +20,15 @@ $ git clone https://github.com/christiangubana/rest-api.git
 
 ```cd project-name``` 
 The folder name is rest-api
+
+
+## project structure
+
+```terminal
+   
+   └── res-api/       
+    ├── client/
+    ├── server/
+    └── docker-compose.yml
+...
+```
