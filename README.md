@@ -3,7 +3,7 @@
 ## Description
 This project is a web application built using Node.js/Express/MongoDB-memory-server user authentication to help identify verified users before allowing them access/managing todos items. It includes features such as user authentication, the dashboard for displaying todos, the weather page, and basic navigation. The backend API for managing todos is assumed to be available at ``` http://localhost:8080/api``` and the client side is built in React.js/Tailwindcss.
 
-Since we use an In-memory Database, the server only keeps your data in memory while the server is up and running, which means, you'll be required to restart the server each time you want to make certain operations with the API.
+Since we use an In-memory Database, the server only keeps your data in memory while the server is up and running, which means certain operations will start over every time the server is restarted.
 
 
 ## Installation
